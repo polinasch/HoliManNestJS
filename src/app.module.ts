@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
+import { Arbeitstage } from './modules/arbeitstage/arbeitstage.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot(
@@ -13,7 +14,7 @@ import { Connection } from 'typeorm';
       username: "root",
       password: "mS!q12020",
       database: "holidaymanager",
-      entities: [],
+      entities: [Arbeitstage],
       synchronize: true
     }
   )],
