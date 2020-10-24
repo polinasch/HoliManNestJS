@@ -1,30 +1,33 @@
-
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Benutzer } from '../benutzer/benutzer.entity';
 
 @Entity()
 export class Arbeitstage {
-  @PrimaryGeneratedColumn()
-  TageID: int;
+  @PrimaryGeneratedColumn({ type: "int" })
+  TageID: number;
 
   @Column()
-  Montag: tinyint;
+  Montag: boolean;
 
   @Column()
-  Dienstag: tinyint;
+  Dienstag: boolean;
   
   @Column()
-  Mittwoch: tinyint;
+  Mittwoch: boolean;
 
   @Column()
-  Donnerstag: tinyint;
+  Donnerstag: boolean;
 
   @Column()
-  Freitag: tinyint;
+  Freitag: boolean;
 
   @Column()
-  Samstag: tinyint;
+  Samstag: boolean;
 
   @Column()
-  Sonntag: tinyint;
+  Sonntag: boolean;
+
+  @OneToMany(() => Benutzer, benutzer => benutzer.arbeitstage)
+  allebenutzer: Benutzer[];
   
 }

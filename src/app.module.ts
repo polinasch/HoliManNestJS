@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { Arbeitstage } from './modules/arbeitstage/arbeitstage.entity';
+import { Benutzer } from './modules/benutzer/benutzer.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot(
@@ -14,7 +15,7 @@ import { Arbeitstage } from './modules/arbeitstage/arbeitstage.entity';
       username: "root",
       password: "mS!q12020",
       database: "holidaymanager",
-      entities: [Arbeitstage],
+      entities: [Arbeitstage, Benutzer],
       synchronize: true
     }
   )],
