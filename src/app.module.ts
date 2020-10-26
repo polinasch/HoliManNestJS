@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { Arbeitstage } from './modules/arbeitstage/arbeitstage.entity';
 import { Benutzer } from './modules/benutzer/benutzer.entity';
+import { Antrag } from './modules/antrag/antrag.entity';
+import { Bundesland } from './modules/bundesland/bundesland.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot(
@@ -15,7 +17,7 @@ import { Benutzer } from './modules/benutzer/benutzer.entity';
       username: "root",
       password: "mS!q12020",
       database: "holidaymanager",
-      entities: [Arbeitstage, Benutzer],
+      entities: [Arbeitstage, Benutzer, Antrag, Bundesland],
       synchronize: true
     }
   )],
