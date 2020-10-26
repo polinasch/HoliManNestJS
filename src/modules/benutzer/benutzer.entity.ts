@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 import { Arbeitstage } from '../arbeitstage/arbeitstage.entity';
+import { Antrag } from '../antrag/antrag.entity';
 
 @Entity()
 export class Benutzer {
@@ -27,16 +28,18 @@ export class Benutzer {
     @Column({ type: "varchar", length: 50})
     Nachname: string;
 
-    @Column({ type: "date" })
+    @Column()
     Geburtsdatum: Date;
 
     @Column({ type: "varchar", length: 50})
     Email: string;
 
-    @Column({ type: "date" })
+    @Column()
     Eintrittsdatum: Date;
 
     @ManyToOne(() => Arbeitstage, arbeitstage => arbeitstage.TageID)
     arbeitstage = Arbeitstage;
 
+    @OneToMany(() => Antrag, antrag => antrag.benutzer)
+    anträge: Antrag[];
 }
