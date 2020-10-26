@@ -7,6 +7,7 @@ import { Arbeitstage } from './modules/arbeitstage/arbeitstage.entity';
 import { Benutzer } from './modules/benutzer/benutzer.entity';
 import { Antrag } from './modules/antrag/antrag.entity';
 import { Bundesland } from './modules/bundesland/bundesland.entity';
+import { Feiertag } from './modules/feiertag/feiertag.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot(
@@ -17,7 +18,7 @@ import { Bundesland } from './modules/bundesland/bundesland.entity';
       username: "root",
       password: "mS!q12020",
       database: "holidaymanager",
-      entities: [Arbeitstage, Benutzer, Antrag, Bundesland],
+      entities: [Arbeitstage, Benutzer, Antrag, Bundesland, Feiertag],
       synchronize: true
     }
   )],

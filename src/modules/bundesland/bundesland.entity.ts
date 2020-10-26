@@ -14,8 +14,5 @@ export class Bundesland {
 
   @OneToMany(() => BundeslandFeiertag, bundeslandFeiertag => bundeslandFeiertag.Bundesland)
   bundeslaender: BundeslandFeiertag[];
-
-  @OneToMany(() => BundeslandFeiertag, bundeslandFeiertag => bundeslandFeiertag.Feiertag)
-  feiertage: BundeslandFeiertag[];
   
 }
