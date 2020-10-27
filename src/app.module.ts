@@ -3,26 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
-import { Arbeitstage } from './modules/arbeitstage/arbeitstage.entity';
-import { Benutzer } from './modules/benutzer/benutzer.entity';
-import { Antrag } from './modules/antrag/antrag.entity';
-import { Bundesland } from './modules/bundesland/bundesland.entity';
-import { Feiertag } from './modules/feiertag/feiertag.entity';
-import { BundeslandFeiertag } from './modules/bundesland_feiertag/bundesland_feiertag.entity';
+import { ArbeitstageModule } from './modules/arbeitstage/arbeitstage.module';
+import { BenutzerModule } from './modules/benutzer/benutzer.module';
+import { AntragModule } from './modules/antrag/antrag.module';
+import { BundeslandModule } from './modules/bundesland/bundesland.module';
+import { FeiertagModule } from './modules/feiertag/feiertag.module';
+import { BundeslandFeiertagModule } from './modules/bundesland_feiertag/bundesland_feiertag.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(
-    {
-      type: "mysql",
-      host: "localhost",
-      port: 3306,
-      username: "root",
-      password: "mS!q12020",
-      database: "holidaymanager",
-      entities: [Arbeitstage, Benutzer, Antrag, Bundesland, Feiertag, BundeslandFeiertag],
-      synchronize: true
-    }
-  )],
+  imports: [TypeOrmModule.forRoot(), ArbeitstageModule, BenutzerModule, AntragModule, BundeslandModule, FeiertagModule, BundeslandFeiertagModule],
   controllers: [AppController],
   providers: [AppService],
 })
