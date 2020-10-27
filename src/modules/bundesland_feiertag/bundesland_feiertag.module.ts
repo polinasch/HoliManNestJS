@@ -10,4 +10,4 @@ import { BundeslandFeiertagController } from './bundesland_feiertag.controller';
     providers: [BundeslandFeiertagService],
     controllers: [BundeslandFeiertagController],
 })
-export class BundeslandModule {}
+export class BundeslandFeiertagModule {}
