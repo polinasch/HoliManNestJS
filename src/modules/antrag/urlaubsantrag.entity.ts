@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { Benutzer } from '../benutzer/benutzer.entity';
 
 @Entity()
-export class Antrag {
+export class Urlaubsantrag {
     @PrimaryGeneratedColumn({ type: "int" })
     AntragID: number;
 
@@ -24,7 +24,7 @@ export class Antrag {
     @Column()
     informiert: boolean;
 
-    @ManyToOne(() => Benutzer, benutzer => benutzer.BenutzerID)
+    @ManyToOne(() => Benutzer, benutzer => benutzer.anträge)
     benutzer: Benutzer;
 
 
