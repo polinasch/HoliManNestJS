@@ -13,10 +13,10 @@ export class BundeslandFeiertag {
   @Column({ type: "int"})
   Bundesland: number;
 
-  @ManyToOne (() => Bundesland, bundesland => bundesland.BundeslandID)
+  @ManyToOne (() => Bundesland, bundesland => bundesland.bundeslaender)
   bundesland = Bundesland;
 
-  @ManyToOne (() => Feiertag, feiertag => feiertag.FeiertagID)
+  @ManyToOne (() => Feiertag, feiertag => feiertag.feiertage)
   feiertag = Feiertag;
   
 }

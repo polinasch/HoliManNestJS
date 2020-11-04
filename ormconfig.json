@@ -5,6 +5,7 @@
     "username": "root",
     "password": "mS!q12020",
     "database": "holidaymanager",
-    "entities": "./src/modules/**/*.entity.ts",
-    "synchronize": true
+    "entities": ["dist/**/*.entity.js"],
+    "synchronize": true,
+    "insecureAuth": true
   }
