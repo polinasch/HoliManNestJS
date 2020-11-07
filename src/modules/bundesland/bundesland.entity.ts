@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BundeslandFeiertag } from '../bundesland_feiertag/bundesland_feiertag.entity';
+import { Benutzer } from '../Benutzer/benutzer.entity';
 
 @Entity()
 export class Bundesland {
@@ -14,5 +15,8 @@ export class Bundesland {
 
   @OneToMany(() => BundeslandFeiertag, bundeslandFeiertag => bundeslandFeiertag.Bundesland)
   bundeslaender: BundeslandFeiertag[];
+
+  @OneToMany(() => Benutzer, benutzer => benutzer.bundesland)
+  alleBenutzer: Benutzer[];
   
 }

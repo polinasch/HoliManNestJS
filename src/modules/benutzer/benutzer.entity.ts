@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 import { Arbeitstage } from '../arbeitstage/arbeitstage.entity';
+import { Bundesland } from '../Bundesland/bundesland.entity';
 import { Urlaubsantrag } from '../antrag/urlaubsantrag.entity';
 
 @Entity()
@@ -39,6 +40,9 @@ export class Benutzer {
 
     @ManyToOne(() => Arbeitstage, arbeitstage => arbeitstage.allebenutzer)
     arbeitstage: Arbeitstage;
+
+    @ManyToOne(() => Bundesland, bundesland => bundesland.alleBenutzer)
+    bundesland: Bundesland;
 
     @OneToMany(() => Urlaubsantrag, urlaubsantrag => urlaubsantrag.benutzer)
     anträge: Urlaubsantrag[];
