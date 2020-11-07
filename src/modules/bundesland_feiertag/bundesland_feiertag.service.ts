@@ -11,14 +11,14 @@ export class BundeslandFeiertagService {
       ) {}
     
       getAllBLFeiertage(): Promise<BundeslandFeiertag[]> {
-        return this.bundeslandFeiertagRepository.find();
+        return this.bundeslandFeiertagRepository.find({ relations: ['bundesland', 'feiertag']});
       }
     
-      findBLFeiertagByID(id: string): Promise<BundeslandFeiertag> {
-        return this.bundeslandFeiertagRepository.findOne(id);
+      findBLFeiertagByID(id: number): Promise<BundeslandFeiertag> {
+        return this.bundeslandFeiertagRepository.findOne(id, { relations: ['bundesland', 'feiertag']});
       }
     
-      async deleteBLFeiertag(id: string): Promise<void> {
+      async deleteBLFeiertag(id: number): Promise<void> {
         await this.bundeslandFeiertagRepository.delete(id);
       }
 }

@@ -12,11 +12,11 @@ export class ArbeitstageService {
       ) {}
     
       async getAllArbeitstage(): Promise<Arbeitstage[]> {
-        return this.arbeitstageRepository.find({ relations: ['benutzer']});
+        return this.arbeitstageRepository.find({ relations: ['allebenutzer']});
       }
     
       async findArbeitstageByID(id: number): Promise<Arbeitstage> {
-        return this.arbeitstageRepository.findOne(id, { relations: ['benutzer']});
+        return this.arbeitstageRepository.findOne(id, { relations: ['allebenutzer']});
       }
 
       async createArbeitstage(arbeitstage: CreateArbeitstage) {

@@ -12,11 +12,11 @@ export class BenutzerService {
       ) {}
     
       getAllBenutzer(): Promise<Benutzer[]> {
-        return this.benutzerRepository.find({ relations: ['bundesland', 'arbeitstage']});
+        return this.benutzerRepository.find({ relations: ['bundesland', 'arbeitstage', 'anträge']});
       }
     
       findBenutzerByID(id: number): Promise<Benutzer> {
-        return this.benutzerRepository.findOne(id, { relations: ['bundesland', 'arbeitstage']});
+        return this.benutzerRepository.findOne(id, { relations: ['bundesland', 'arbeitstage', 'anträge']});
       }
 
       async createBenutzer(benutzer: CreateBenutzer) {

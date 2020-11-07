@@ -11,11 +11,11 @@ export class BundeslandService {
       ) {}
     
       getAllBundeslaender(): Promise<Bundesland[]> {
-        return this.bundeslandRepository.find();
+        return this.bundeslandRepository.find({ relations: ['bundeslaender', 'alleBenutzer']});
       }
     
       findBundeslandByID(id: number): Promise<Bundesland> {
-        return this.bundeslandRepository.findOne(id);
+        return this.bundeslandRepository.findOne(id, { relations: ['bundeslaender', 'alleBenutzer']});
       }
     
       async deleteBundesland(id: number): Promise<DeleteResult> {

@@ -9,5 +9,4 @@ export class UpdateArbeitstage {
     readonly Freitag: boolean;
     readonly Samstag: boolean;
     readonly Sonntag: boolean;
-    readonly alleBenutzer: Benutzer;
 }
