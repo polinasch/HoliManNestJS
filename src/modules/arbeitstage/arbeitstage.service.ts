@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, UpdateResult } from 'typeorm';
 import { Arbeitstage } from './arbeitstage.entity';
+import { CreateArbeitstage, UpdateArbeitstage } from './dto/index';
 
 @Injectable()
 export class ArbeitstageService {
@@ -10,15 +11,25 @@ export class ArbeitstageService {
         private arbeitstageRepository: Repository<Arbeitstage>,
       ) {}
     
-      getAllArbeitstage(): Promise<Arbeitstage[]> {
-        return this.arbeitstageRepository.find();
+      async getAllArbeitstage(): Promise<Arbeitstage[]> {
+        return this.arbeitstageRepository.find({ relations: ['benutzer']});
       }
     
-      findArbeitstageByID(id: string): Promise<Arbeitstage> {
-        return this.arbeitstageRepository.findOne(id);
+      async findArbeitstageByID(id: number): Promise<Arbeitstage> {
+        return this.arbeitstageRepository.findOne(id, { relations: ['benutzer']});
+      }
+
+      async createArbeitstage(arbeitstage: CreateArbeitstage) {
+        const tage = this.arbeitstageRepository.create(arbeitstage);
+        await this.arbeitstageRepository.save(arbeitstage);
+        return tage;
+      }
+
+      async updateArbeitstage(arbeitstage: UpdateArbeitstage): Promise<UpdateResult> {
+        return await this.arbeitstageRepository.update(arbeitstage.TageID, arbeitstage);
       }
     
-      async deleteArbeitstage(id: string): Promise<void> {
+      async deleteArbeitstage(id: number): Promise<void> {
         await this.arbeitstageRepository.delete(id);
       }
 }
