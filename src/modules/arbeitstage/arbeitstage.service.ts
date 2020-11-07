@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, UpdateResult } from 'typeorm';
+import { Repository, UpdateResult, DeleteResult } from 'typeorm';
 import { Arbeitstage } from './arbeitstage.entity';
 import { CreateArbeitstage, UpdateArbeitstage } from './dto/index';
 
@@ -29,7 +29,9 @@ export class ArbeitstageService {
         return await this.arbeitstageRepository.update(arbeitstage.TageID, arbeitstage);
       }
     
-      async deleteArbeitstage(id: number): Promise<void> {
-        await this.arbeitstageRepository.delete(id);
+      async deleteArbeitstage(id: number): Promise<DeleteResult> {
+        return await this.arbeitstageRepository.findOne(id).then((value) => {
+          return this.arbeitstageRepository.delete(value);
+        });
       }
 }
