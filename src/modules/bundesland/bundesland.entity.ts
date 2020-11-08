@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BundeslandFeiertag } from '../bundesland_feiertag/bundesland_feiertag.entity';
-import { Benutzer } from '../Benutzer/benutzer.entity';
+import { Benutzer } from '../benutzer/benutzer.entity';
 
 @Entity()
 export class Bundesland {
