@@ -3,7 +3,7 @@ import { BundeslandFeiertag } from './bundesland_feiertag.entity';
 import { BundeslandFeiertagService } from './bundesland_feiertag.service';
 import { CreateBundeslandFeiertag, UpdateBundeslandFeiertag } from './dto';
 
-@Controller('bundesland')
+@Controller('bundeslandFeiertag')
 export class BundeslandFeiertagController {
     constructor(private readonly bundeslandFeiertagService: BundeslandFeiertagService) {}
 

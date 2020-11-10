@@ -15,7 +15,7 @@ export class Feiertag {
     @Column()
     bundesweit: boolean;
 
-    @OneToMany(() => BundeslandFeiertag, bundeslandFeiertag => bundeslandFeiertag.Feiertag)
+    @OneToMany(() => BundeslandFeiertag, bundeslandFeiertag => bundeslandFeiertag.feiertag)
     feiertage: BundeslandFeiertag[];
 
 }

@@ -13,7 +13,7 @@ export class Bundesland {
   @Column({ type: "varchar", length: 50})
   Name: string;
 
-  @OneToMany(() => BundeslandFeiertag, bundeslandFeiertag => bundeslandFeiertag.Bundesland)
+  @OneToMany(() => BundeslandFeiertag, bundeslandFeiertag => bundeslandFeiertag.bundesland)
   bundeslaender: BundeslandFeiertag[];
 
   @OneToMany(() => Benutzer, benutzer => benutzer.bundesland)
