@@ -7,7 +7,7 @@ import { UrlaubsantragService } from './urlaubsantrag.service';
 export class UrlaubsantragController {
     constructor(private readonly urlaubsantragService: UrlaubsantragService) {}
 
-    @Post()
+    @Post('/create')
     async createUrlaubsantrag(@Body() createUrlaubsantrag: CreateUrlaubsantrag): Promise<Urlaubsantrag> {
     return this.urlaubsantragService.createAntrag(createUrlaubsantrag);
     }
@@ -22,12 +22,12 @@ export class UrlaubsantragController {
         return this.urlaubsantragService.findAntragByID(id);
     }
 
-    @Patch()
+    @Patch('/update')
     async update(@Body() updateUrlaubsantrag: UpdateUrlaubsantrag) {
     return this.urlaubsantragService.updateAntrag(updateUrlaubsantrag);
   }
 
-    @Delete(':id')
+    @Delete('/delete/:id')
     async remove(@Param('id', new ParseIntPipe()) id) {
     return this.urlaubsantragService.deleteAntrag(id);
   }
