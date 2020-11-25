@@ -1,7 +1,6 @@
 import { Benutzer } from '../../benutzer/benutzer.entity';
 
 export class CreateUrlaubsantrag {
-    readonly AntragID: number;
     readonly Urlaubsart: string;
     readonly Status: string;
     readonly von: Date;
