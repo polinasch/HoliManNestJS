@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Body, Param, ParseBoolPipe, ParseIntPipe, Query } from '@nestjs/common';
 import { Benutzer } from './benutzer.entity';
 import { BenutzerService } from './benutzer.service';
 import { CreateBenutzer, UpdateBenutzer } from './dto';
@@ -20,6 +20,11 @@ export class BenutzerController {
     @Get(':id')
     async getBenutzerByID(@Param('id', new ParseIntPipe()) id): Promise<Benutzer> {
         return this.benutzerService.findBenutzerByID(id);
+    }
+    
+    @Get('/vorgesetzter')
+    async getAllVorgesetzten(@Query('istVorgesetzter', new ParseBoolPipe()) istVorgesetzter: boolean): Promise<Benutzer[]>{
+      return this.benutzerService.getAllVorgesetzten(istVorgesetzter);
     }
 
     @Patch()

@@ -19,6 +19,10 @@ export class BenutzerService {
         return this.benutzerRepository.findOne(id, { relations: ['bundesland', 'arbeitstage', 'anträge']});
       }
 
+      getAllVorgesetzten(istVorgesetzter: boolean): Promise<Benutzer[]>{
+        return this.benutzerRepository.find({ where: {istVorgesetzter: istVorgesetzter} });
+      }
+
       async createBenutzer(benutzer: CreateBenutzer) {
         const nutzer = this.benutzerRepository.create(benutzer);
         await this.benutzerRepository.save(benutzer);
