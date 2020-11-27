@@ -17,14 +17,14 @@ export class BenutzerController {
         return this.benutzerService.getAllBenutzer();
     }
 
-    @Get(':id')
-    async getBenutzerByID(@Param('id', new ParseIntPipe()) id): Promise<Benutzer> {
-        return this.benutzerService.findBenutzerByID(id);
-    }
-    
     @Get('/vorgesetzter')
     async getAllVorgesetzten(@Query('istVorgesetzter', new ParseBoolPipe()) istVorgesetzter: boolean): Promise<Benutzer[]>{
       return this.benutzerService.getAllVorgesetzten(istVorgesetzter);
+    }
+
+    @Get(':id')
+    async getBenutzerByID(@Param('id', new ParseIntPipe()) id): Promise<Benutzer> {
+        return this.benutzerService.findBenutzerByID(id);
     }
 
     @Patch()
