@@ -27,7 +27,7 @@ export class UrlaubsantragController {
     return this.urlaubsantragService.updateAntrag(updateUrlaubsantrag);
   }
 
-    @Delete('/delete/:id')
+    @Delete(':id')
     async remove(@Param('id', new ParseIntPipe()) id) {
     return this.urlaubsantragService.deleteAntrag(id);
   }
