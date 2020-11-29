@@ -2,7 +2,6 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'ty
 import { Arbeitstage } from '../arbeitstage/arbeitstage.entity';
 import { Bundesland } from '../bundesland/bundesland.entity';
 import { Urlaubsantrag } from '../antrag/urlaubsantrag.entity';
-import { Transform } from 'class-transformer';
 
 @Entity()
 export class Benutzer {
@@ -30,14 +29,12 @@ export class Benutzer {
     @Column({ type: "varchar", length: 50})
     Nachname: string;
 
-    @Transform(von => von.format('YYYY-MM-DD'))
     @Column()
     Geburtsdatum: Date;
 
     @Column({ type: "varchar", length: 50})
     Email: string;
 
-    @Transform(von => von.format('YYYY-MM-DD'))
     @Column()
     Eintrittsdatum: Date;
 
