@@ -7,7 +7,7 @@ import { UrlaubsantragService } from './urlaubsantrag.service';
 export class UrlaubsantragController {
     constructor(private readonly urlaubsantragService: UrlaubsantragService) {}
 
-    @Post('/create')
+    @Post()
     async createUrlaubsantrag(@Body() createUrlaubsantrag: CreateUrlaubsantrag): Promise<Urlaubsantrag> {
     return this.urlaubsantragService.createAntrag(createUrlaubsantrag);
     }
