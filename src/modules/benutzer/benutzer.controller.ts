@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, ParseBoolPipe, ParseIntPipe, Query } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, ParseBoolPipe, ParseIntPipe, Query, Res, NotFoundException, HttpStatus } from '@nestjs/common';
 import { Benutzer } from './benutzer.entity';
 import { BenutzerService } from './benutzer.service';
 import { CreateBenutzer, UpdateBenutzer } from './dto';
@@ -27,10 +27,10 @@ export class BenutzerController {
         return this.benutzerService.findBenutzerByID(id);
     }
 
-    @Patch()
-    async update(@Body() updateBenutzer: UpdateBenutzer) {
-    return this.benutzerService.updateBenutzer(updateBenutzer);
-  }
+    @Put(':id')
+    updateBenutzer(@Param('id') id: number, @Body() createBenutzerDTO: CreateBenutzer) {
+    return this.benutzerService.updateBenutzer(id, createBenutzerDTO);
+  } 
 
     @Delete(':id')
     async remove(@Param('id', new ParseIntPipe()) id) {
