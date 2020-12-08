@@ -22,6 +22,11 @@ export class UrlaubsantragController {
         return this.urlaubsantragService.findAntragByID(id);
     }
 
+    @Get('/benutzer/:id')
+    async getUrlaubsantragByBenutzer(@Param('id', new ParseIntPipe()) id): Promise<Urlaubsantrag[]> {
+        return this.urlaubsantragService.findAntragByBenutzer(id);
+    }
+
     @Put(':id')
     updateAntrag(@Param('id') id: number, @Body() createAntragDTO: CreateUrlaubsantrag) {
     return this.urlaubsantragService.updateAntrag(id, createAntragDTO);

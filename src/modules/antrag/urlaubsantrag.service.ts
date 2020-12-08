@@ -19,6 +19,10 @@ export class UrlaubsantragService {
         return this.urlaubsantragRepository.findOne(id, {relations: ['benutzer']});
       }
 
+      async findAntragByBenutzer(id: number): Promise<Urlaubsantrag[]> {
+        return this.urlaubsantragRepository.find({ where: {benutzer: id} });
+      }
+
       async createAntrag(urlaubsantrag: CreateUrlaubsantrag) {
         const antrag = this.urlaubsantragRepository.create(urlaubsantrag);
         await this.urlaubsantragRepository.save(urlaubsantrag);
