@@ -23,7 +23,7 @@ export class UrlaubsantragController {
     }
 
     @Put(':id')
-    updateBenutzer(@Param('id') id: number, @Body() createAntragDTO: CreateUrlaubsantrag) {
+    updateAntrag(@Param('id') id: number, @Body() createAntragDTO: CreateUrlaubsantrag) {
     return this.urlaubsantragService.updateAntrag(id, createAntragDTO);
     } 
 
