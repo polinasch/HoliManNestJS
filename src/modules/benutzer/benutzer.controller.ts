@@ -30,7 +30,7 @@ export class BenutzerController {
     @Put(':id')
     updateBenutzer(@Param('id') id: number, @Body() createBenutzerDTO: CreateBenutzer) {
     return this.benutzerService.updateBenutzer(id, createBenutzerDTO);
-  } 
+    } 
 
     @Delete(':id')
     async remove(@Param('id', new ParseIntPipe()) id) {
