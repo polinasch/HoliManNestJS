@@ -23,7 +23,7 @@ export class Urlaubsantrag {
     @Column()
     informiert: boolean;
 
-    @ManyToOne(() => Benutzer, benutzer => benutzer.anträge)
+    @ManyToOne(() => Benutzer, benutzer => benutzer.anträge, { onDelete: 'CASCADE' })
     benutzer: Benutzer;
 
 
