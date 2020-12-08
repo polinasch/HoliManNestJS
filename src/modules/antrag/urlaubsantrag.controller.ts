@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Body, Param, ParseIntPipe, Put } from '@nestjs/common';
 import { CreateUrlaubsantrag, UpdateUrlaubsantrag } from './dto';
 import { Urlaubsantrag } from './urlaubsantrag.entity';
 import { UrlaubsantragService } from './urlaubsantrag.service';
@@ -22,10 +22,10 @@ export class UrlaubsantragController {
         return this.urlaubsantragService.findAntragByID(id);
     }
 
-    @Patch('/update')
-    async update(@Body() updateUrlaubsantrag: UpdateUrlaubsantrag) {
-    return this.urlaubsantragService.updateAntrag(updateUrlaubsantrag);
-  }
+    @Put(':id')
+    updateBenutzer(@Param('id') id: number, @Body() createAntragDTO: CreateUrlaubsantrag) {
+    return this.urlaubsantragService.updateAntrag(id, createAntragDTO);
+    } 
 
     @Delete(':id')
     async remove(@Param('id', new ParseIntPipe()) id) {

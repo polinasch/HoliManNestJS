@@ -25,8 +25,8 @@ export class UrlaubsantragService {
         return antrag;
       }
     
-      async updateAntrag(urlaubsantrag: UpdateUrlaubsantrag): Promise<UpdateResult> {
-        return await this.urlaubsantragRepository.update(urlaubsantrag.AntragID, urlaubsantrag);
+      async updateAntrag(id: number, urlaubsantrag: CreateUrlaubsantrag) {
+        return await this.urlaubsantragRepository.update( id, urlaubsantrag);
       }
     
       async deleteAntrag(id: number): Promise<DeleteResult> {
