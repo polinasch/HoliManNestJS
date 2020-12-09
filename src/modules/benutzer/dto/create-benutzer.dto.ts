@@ -17,7 +17,7 @@ export class CreateBenutzer {
 
     readonly istAdmin: boolean;
     readonly istVorgesetzter: boolean;
-    readonly Vorgesetzter: string;
+    readonly Vorgesetzter: number;
     readonly Vorname: string;
     readonly Nachname: string;
     readonly Geburtsdatum: Date;

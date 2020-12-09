@@ -7,7 +7,7 @@ export class UpdateBenutzer {
     readonly Passwort: string;
     readonly istAdmin: boolean;
     readonly istVorgesetzter: boolean;
-    readonly Vorgesetzter: string;
+    readonly Vorgesetzter: number;
     readonly Vorname: string;
     readonly Nachname: string;
     readonly Geburtsdatum: Date;

@@ -20,8 +20,8 @@ export class Benutzer {
     @Column()
     istVorgesetzter: boolean;
 
-    @Column({ type: "varchar", length: 50})
-    Vorgesetzter: string;
+    @Column({ type: "int"})
+    Vorgesetzter: number;
 
     @Column({ type: "varchar", length: 50})
     Vorname: string;
