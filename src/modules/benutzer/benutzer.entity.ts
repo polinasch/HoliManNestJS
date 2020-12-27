@@ -14,10 +14,10 @@ export class Benutzer {
     @Column({ type: "varchar", length: 50})
     Passwort: string;
 
-    @Column()
+    @Column({ default: false})
     istAdmin: boolean;
 
-    @Column()
+    @Column({ default: false})
     istVorgesetzter: boolean;
 
     @Column({ type: "int"})
