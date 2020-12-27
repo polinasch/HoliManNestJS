@@ -1,5 +1,5 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, ParseIntPipe, Put } from '@nestjs/common';
-import { CreateUrlaubsantrag, UpdateUrlaubsantrag } from './dto';
+import { Controller, Get, Post, Delete, Body, Param, ParseIntPipe, Put } from '@nestjs/common';
+import { CreateUrlaubsantrag } from './dto';
 import { Urlaubsantrag } from './urlaubsantrag.entity';
 import { UrlaubsantragService } from './urlaubsantrag.service';
 
