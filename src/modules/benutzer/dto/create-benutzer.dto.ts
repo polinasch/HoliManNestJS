@@ -1,6 +1,7 @@
 import { Bundesland } from '../../bundesland/bundesland.entity';
 import { Arbeitstage } from '../../arbeitstage/arbeitstage.entity';
 import {IsString, Matches, MaxLength, MinLength} from 'class-validator';
+import { Urlaubsantrag } from 'src/modules/antrag/urlaubsantrag.entity';
 
 export class CreateBenutzer {
     @IsString()
@@ -14,7 +15,6 @@ export class CreateBenutzer {
     //@Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, 
     //{message: 'das Passwort ist zu schwach'})
     readonly Passwort: string;
-
     readonly istAdmin: boolean;
     readonly istVorgesetzter: boolean;
     readonly Vorgesetzter: number;
@@ -24,5 +24,5 @@ export class CreateBenutzer {
     readonly Email: string;
     readonly Eintrittsdatum: Date;
     readonly arbeitstage: Arbeitstage;
-    readonly bundesland: Bundesland;    
+    readonly bundesland: Bundesland;
 }
