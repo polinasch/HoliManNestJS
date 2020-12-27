@@ -25,7 +25,4 @@ export class Urlaubsantrag {
 
     @ManyToOne(() => Benutzer, benutzer => benutzer.anträge, { onDelete: 'CASCADE' })
     benutzer: Benutzer;
-
-
-
 }
